@@ -1,0 +1,20 @@
+{
+  "Version": 1,
+  "Hash": "EXOF0Ur9TZJwuk6umyg85ZNHBFHuNkeByIVMzG89WtI=",
+  "Source": "HastaKonumWebApi2",
+  "BasePath": "_content/HastaKonumWebApi2",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "HastaKonumWebApi2\\wwwroot",
+      "Source": "HastaKonumWebApi2",
+      "ContentRoot": "C:\\Users\\eemir\\OneDrive\\Masaüstü\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\wwwroot\\",
+      "BasePath": "_content/HastaKonumWebApi2",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [],
+  "Endpoints": []
+}

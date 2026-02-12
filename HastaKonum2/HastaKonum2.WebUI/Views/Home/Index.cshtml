@@ -1,0 +1,260 @@
+﻿@model HastaKonum2.WebUI.Models.DashboardViewModel
+@{
+    ViewData["Title"] = "Hasta Yatak Takip Sistemi - Dashboard";
+}
+
+<div>
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="display-4 text-center mb-4">Hasta Yatak Takip Sistemi</h1>
+            <p class="text-center text-muted">Anlık yatak durumu ve hasta bilgileri</p>
+        </div>
+    </div>
+
+    @if (Model.Statistics.TotalBeds == 0 && !Model.Beds.Any() && !Model.Patients.Any())
+    {
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <h4 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> API Bağlantı Uyarısı</h4>
+                    <p>API'ye bağlanılamadı veya veritabanında veri bulunmuyor. Lütfen aşağıdaki adımları kontrol edin:</p>
+                    <hr>
+                    <ol>
+                        <li><strong>API projesinin çalıştığından emin olun:</strong> <code>HastaKonumWebApi2</code> projesi <code>http://localhost:5144</code> adresinde çalışmalı</li>
+                        <li><strong>API'yi başlatmak için:</strong> Yeni bir terminal açın ve şu komutu çalıştırın:
+                            <pre class="mt-2"><code>cd HastaKonum2\HastaKonumWebApi2
+dotnet run</code></pre>
+                        </li>
+                        <li><strong>Swagger'ı kontrol edin:</strong> <a href="http://localhost:5144/swagger" target="_blank">http://localhost:5144/swagger</a> adresine giderek API'nin çalıştığını doğrulayın</li>
+                        <li><strong>Veri eklemek için:</strong> Swagger üzerinden yatak ve hasta verileri ekleyebilirsiniz</li>
+                    </ol>
+                    <button type="button" class="btn btn-sm btn-primary mt-2" onclick="location.reload()">
+                        <i class="fas fa-sync-alt"></i> Sayfayı Yenile
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- İstatistik Kartları -->
+    <div class="row mb-4">
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title mb-0">Toplam Yatak</h6>
+                            <h2 class="mb-0">@Model.Statistics.TotalBeds</h2>
+                        </div>
+                        <i class="fas fa-bed fa-2x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-success">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title mb-0">Dolu Yatak</h6>
+                            <h2 class="mb-0">@Model.Statistics.OccupiedBeds</h2>
+                        </div>
+                        <i class="fas fa-user-injured fa-2x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-info">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title mb-0">Boş Yatak</h6>
+                            <h2 class="mb-0">@Model.Statistics.EmptyBeds</h2>
+                        </div>
+                        <i class="fas fa-bed fa-2x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-warning">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title mb-0">Temizlikte</h6>
+                            <h2 class="mb-0">@Model.Statistics.CleaningBeds</h2>
+                        </div>
+                        <i class="fas fa-broom fa-2x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Doluluk Oranı -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Doluluk Oranı</h5>
+                </div>
+                <div class="card-body">
+                    <div class="progress" style="height: 30px;">
+                        <div class="progress-bar bg-success" role="progressbar" 
+                             style="width: @Model.Statistics.OccupancyRate.ToString("F1")%" 
+                             aria-valuenow="@Model.Statistics.OccupancyRate" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            @Model.Statistics.OccupancyRate.ToString("F1")%
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Yatak Durumları -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Yatak Durumları</h5>
+                    <button class="btn btn-sm btn-primary" onclick="location.reload()">
+                        <i class="fas fa-sync-alt"></i> Yenile
+                    </button>
+                </div>
+                <div class="card-body">
+                    @if (Model.Beds.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Yatak No</th>
+                                        <th>Durum</th>
+                                        <th>Hasta Adı</th>
+                                        <th>İşlemler</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var bed in Model.Beds.OrderBy(b => b.BedNumber))
+                                    {
+                                        <tr>
+                                            <td><strong>@bed.BedNumber</strong></td>
+                                            <td>
+                                                @if (bed.Status == "Dolu")
+                                                {
+                                                    <span class="badge bg-danger">Dolu</span>
+                                                }
+                                                else if (bed.Status == "Boş")
+                                                {
+                                                    <span class="badge bg-success">Boş</span>
+                                                }
+                                                else if (bed.Status == "Temizlikte")
+                                                {
+                                                    <span class="badge bg-warning">Temizlikte</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-secondary">@bed.Status</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (bed.Patient != null)
+                                                {
+                                                    <span class="text-primary">@bed.Patient.Name</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">-</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (bed.Patient != null)
+                                                {
+                                                    <button class="btn btn-sm btn-info" onclick="viewPatient(@bed.Patient.Id)">
+                                                        <i class="fas fa-eye"></i> Detay
+                                                    </button>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">-</span>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i> Henüz yatak kaydı bulunmamaktadır.
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hasta Listesi -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Aktif Hastalar</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.Patients.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Hasta Adı</th>
+                                        <th>Yatak No</th>
+                                        <th>İşlemler</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var patient in Model.Patients)
+                                    {
+                                        <tr>
+                                            <td><strong>@patient.Name</strong></td>
+                                            <td>
+                                                <span class="badge bg-primary">@patient.BedNumber</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-info" onclick="viewPatient(@patient.Id)">
+                                                    <i class="fas fa-eye"></i> Detay
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i> Aktif hasta kaydı bulunmamaktadır.
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function viewPatient(patientId) {
+            alert('Hasta ID: ' + patientId + ' - Detay sayfası yakında eklenecek.');
+            // Burada hasta detay sayfasına yönlendirme yapılabilir
+            // window.location.href = '/Patient/Details/' + patientId;
+        }
+    </script>
+}

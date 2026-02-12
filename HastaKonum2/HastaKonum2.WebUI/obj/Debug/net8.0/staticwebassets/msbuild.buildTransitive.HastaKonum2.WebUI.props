@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\HastaKonum2.WebUI.props" />
+</Project>

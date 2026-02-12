@@ -1,0 +1,1217 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hastane Yatak Yönetim Sistemi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'medical-blue': '#1e40af',
+                        'medical-green': '#059669',
+                        'medical-red': '#dc2626',
+                        'medical-orange': '#ea580c'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Login Page -->
+    <div id="loginPage" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 to-blue-800">
+        <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md">
+            <div class="text-center mb-8">
+                <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-hospital text-3xl text-blue-600"></i>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-800">Hastane Yatak Yönetimi</h1>
+                <p class="text-gray-600 mt-2">Sisteme giriş yapın</p>
+            </div>
+
+            <form id="loginForm" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Kullanıcı Adı</label>
+                    <input type="text" id="username" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Kullanıcı adınızı girin">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Şifre</label>
+                    <input type="password" id="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Şifrenizi girin">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Rol</label>
+                    <select id="role" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option value="">Rol seçin</option>
+                        <option value="nurse">Hemşire</option>
+                        <option value="cleaner">Temizlikçi</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-200 font-medium">
+                    Giriş Yap
+                </button>
+            </form>
+
+            <div class="mt-6 text-center text-sm text-gray-500">
+                <p>Demo hesaplar: hemşire/123, temizlikçi/123, admin/123</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="mainApp" class="hidden">
+        <!-- Header -->
+        <header class="bg-white shadow-sm border-b">
+            <div class="flex items-center justify-between px-6 py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="bg-blue-100 w-10 h-10 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-hospital text-blue-600"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-800">Yatak Yönetim Sistemi</h1>
+                        <p class="text-sm text-gray-600" id="userInfo">Hoş geldiniz</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-2 bg-gray-100 px-3 py-2 rounded-lg">
+                        <i class="fas fa-clock text-gray-600"></i>
+                        <span class="text-sm text-gray-700" id="currentTime"></span>
+                    </div>
+                    <button onclick="logout()" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-200">
+                        <i class="fas fa-sign-out-alt mr-2"></i>Çıkış
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="bg-gray-800 text-white">
+            <div class="px-6">
+                <div class="flex space-x-8" id="navigation">
+                    <!-- Navigation items will be populated based on role -->
+                </div>
+            </div>
+        </nav>
+
+        <!-- Content Area -->
+        <main class="p-6">
+            <!-- Dashboard -->
+            <div id="dashboard" class="page-content">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Dashboard</h2>
+                    <p class="text-gray-600">Sistem durumu ve hızlı erişim</p>
+                </div>
+
+                <div id="dashboardContent">
+                    <!-- Dashboard content will be populated based on role -->
+                </div>
+            </div>
+
+            <!-- Bed List Page -->
+            <div id="bedList" class="page-content hidden">
+                <div class="mb-6 flex items-center justify-between">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">Yatak Listesi</h2>
+                        <p class="text-gray-600">Tüm yatakların durumu</p>
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+                        <select id="bedFilter" class="px-4 py-2 border border-gray-300 rounded-lg">
+                            <option value="">Tüm Durumlar</option>
+                            <option value="empty">Boş</option>
+                            <option value="occupied">Dolu</option>
+                            <option value="cleaning">Temizlikte</option>
+                        </select>
+
+                        <input type="text" id="bedSearch" placeholder="Yatak ara..." class="px-4 py-2 border border-gray-300 rounded-lg">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="bedGrid">
+                    <!-- Bed cards will be populated here -->
+                </div>
+            </div>
+
+            <!-- Patient Assignment Page (Nurse only) -->
+            <div id="patientAssignment" class="page-content hidden">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Hasta Atama</h2>
+                    <p class="text-gray-600">Boş yataklara hasta atayın</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Boş Yataklar</h3>
+                        <div class="space-y-3" id="emptyBedsList">
+                            <!-- Empty beds will be listed here -->
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Hasta Bilgileri</h3>
+                        <form id="patientForm" class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Hasta Adı</label>
+                                <input type="text" id="patientName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">TC Kimlik No</label>
+                                <input type="text" id="patientId" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Yaş</label>
+                                <input type="number" id="patientAge" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Tanı</label>
+                                <textarea id="patientDiagnosis" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" rows="3"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Seçili Yatak</label>
+                                <input type="text" id="selectedBed" readonly class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg">
+                            </div>
+
+                            <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition duration-200">
+                                Hastayı Ata
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cleaning Management Page (Cleaner only) -->
+            <div id="cleaningManagement" class="page-content hidden">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Temizlik Yönetimi</h2>
+                    <p class="text-gray-600">Yatak temizlik durumları</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2">
+                        <div class="bg-white rounded-xl shadow-sm p-6">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Temizlik Bekleyen Yataklar</h3>
+                            <div class="space-y-3" id="cleaningBedsList">
+                                <!-- Beds needing cleaning will be listed here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="bg-white rounded-xl shadow-sm p-6">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Temizlik Geçmişi</h3>
+                            <div class="space-y-3" id="cleaningHistory">
+                                <!-- Cleaning history will be shown here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bed Management Page (Admin only) -->
+            <div id="bedManagement" class="page-content hidden">
+                <div class="mb-6 flex items-center justify-between">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">Yatak Yönetimi</h2>
+                        <p class="text-gray-600">Yatak ekleme, düzenleme ve silme</p>
+                    </div>
+
+                    <button onclick="showAddBedModal()" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200">
+                        <i class="fas fa-plus mr-2"></i>Yeni Yatak Ekle
+                    </button>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <table class="w-full">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Yatak No</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Oda</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Durum</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Son Güncelleme</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200" id="bedManagementTable">
+                            <!-- Bed management rows will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- User Management Page (Admin only) -->
+            <div id="userManagement" class="page-content hidden">
+                <div class="mb-6 flex items-center justify-between">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">Kullanıcı Yönetimi</h2>
+                        <p class="text-gray-600">Kullanıcı ekleme, düzenleme ve rol atama</p>
+                    </div>
+
+                    <button onclick="showAddUserModal()" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200">
+                        <i class="fas fa-user-plus mr-2"></i>Yeni Kullanıcı Ekle
+                    </button>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <table class="w-full">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kullanıcı Adı</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ad Soyad</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rol</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Son Giriş</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200" id="userManagementTable">
+                            <!-- User management rows will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Reports Page (Admin only) -->
+            <div id="reports" class="page-content hidden">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Raporlar ve Loglar</h2>
+                    <p class="text-gray-600">Sistem raporları ve aktivite logları</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Toplam Yatak</p>
+                                <p class="text-2xl font-bold text-gray-900">50</p>
+                            </div>
+                            <div class="bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-bed text-blue-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Doluluk Oranı</p>
+                                <p class="text-2xl font-bold text-gray-900">78%</p>
+                            </div>
+                            <div class="bg-green-100 p-3 rounded-full">
+                                <i class="fas fa-chart-line text-green-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Günlük Temizlik</p>
+                                <p class="text-2xl font-bold text-gray-900">12</p>
+                            </div>
+                            <div class="bg-orange-100 p-3 rounded-full">
+                                <i class="fas fa-broom text-orange-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Son Aktiviteler</h3>
+                        <div class="space-y-4" id="recentActivities">
+                            <!-- Recent activities will be shown here -->
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Yatak Kullanım Grafiği</h3>
+                        <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg">
+                            <p class="text-gray-500">Grafik burada gösterilecek</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="bedDetailModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md mx-4">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold text-gray-800">Yatak Detayları</h3>
+                <button onclick="closeBedDetailModal()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="bedDetailContent">
+                <!-- Bed details will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentUser = null;
+        let currentPage = 'dashboard';
+        let beds = [
+            { id: 'B001', room: '101', status: 'empty', patient: null, lastCleaned: '2024-01-15 10:30' },
+            { id: 'B002', room: '101', status: 'occupied', patient: { name: 'Ahmet Yılmaz', id: '12345678901', age: 45, diagnosis: 'Kalp rahatsızlığı' }, lastCleaned: '2024-01-14 14:20' },
+            { id: 'B003', room: '102', status: 'cleaning', patient: null, lastCleaned: '2024-01-15 09:15' },
+            { id: 'B004', room: '102', status: 'empty', patient: null, lastCleaned: '2024-01-15 11:45' },
+            { id: 'B005', room: '103', status: 'occupied', patient: { name: 'Fatma Demir', id: '98765432109', age: 62, diagnosis: 'Diyabet kontrolü' }, lastCleaned: '2024-01-13 16:30' },
+            { id: 'B006', room: '103', status: 'empty', patient: null, lastCleaned: '2024-01-15 08:00' }
+        ];
+
+        let users = [
+            { username: 'hemşire', password: '123', role: 'nurse', fullName: 'Ayşe Hemşire', lastLogin: '2024-01-15 09:30' },
+            { username: 'temizlikçi', password: '123', role: 'cleaner', fullName: 'Mehmet Temizlik', lastLogin: '2024-01-15 08:15' },
+            { username: 'admin', password: '123', role: 'admin', fullName: 'Admin Kullanıcı', lastLogin: '2024-01-15 10:00' }
+        ];
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTime();
+            setInterval(updateTime, 1000);
+
+            // Login form handler
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                login();
+            });
+
+            // Bed filter and search
+            document.getElementById('bedFilter').addEventListener('change', filterBeds);
+            document.getElementById('bedSearch').addEventListener('input', filterBeds);
+
+            // Patient assignment form
+            document.getElementById('patientForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                assignPatient();
+            });
+        });
+
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleString('tr-TR');
+            const timeElement = document.getElementById('currentTime');
+            if (timeElement) {
+                timeElement.textContent = timeString;
+            }
+        }
+
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const role = document.getElementById('role').value;
+
+            if (!username || !password || !role) {
+                alert('Lütfen tüm alanları doldurun!');
+                return;
+            }
+
+            const user = users.find(u => u.username === username && u.password === password && u.role === role);
+
+            if (user) {
+                currentUser = user;
+                document.getElementById('loginPage').classList.add('hidden');
+                document.getElementById('mainApp').classList.remove('hidden');
+
+                document.getElementById('userInfo').textContent = `${getRoleText(user.role)} - ${user.fullName}`;
+
+                setupNavigation();
+                showPage('dashboard');
+            } else {
+                alert('Geçersiz kullanıcı bilgileri!');
+            }
+        }
+
+        function logout() {
+            currentUser = null;
+            document.getElementById('loginPage').classList.remove('hidden');
+            document.getElementById('mainApp').classList.add('hidden');
+
+            // Clear form
+            document.getElementById('loginForm').reset();
+        }
+
+        function getRoleText(role) {
+            const roleTexts = {
+                'nurse': 'Hemşire',
+                'cleaner': 'Temizlikçi',
+                'admin': 'Admin'
+            };
+            return roleTexts[role] || role;
+        }
+
+        function setupNavigation() {
+            const nav = document.getElementById('navigation');
+            nav.innerHTML = '';
+
+            const commonPages = [
+                { id: 'dashboard', text: 'Dashboard', icon: 'fas fa-home' },
+                { id: 'bedList', text: 'Yatak Listesi', icon: 'fas fa-bed' }
+            ];
+
+            const rolePages = {
+                nurse: [
+                    { id: 'patientAssignment', text: 'Hasta Atama', icon: 'fas fa-user-plus' }
+                ],
+                cleaner: [
+                    { id: 'cleaningManagement', text: 'Temizlik Yönetimi', icon: 'fas fa-broom' }
+                ],
+                admin: [
+                    { id: 'bedManagement', text: 'Yatak Yönetimi', icon: 'fas fa-cog' },
+                    { id: 'userManagement', text: 'Kullanıcı Yönetimi', icon: 'fas fa-users' },
+                    { id: 'reports', text: 'Raporlar', icon: 'fas fa-chart-bar' }
+                ]
+            };
+
+            const allPages = [...commonPages, ...(rolePages[currentUser.role] || [])];
+
+            allPages.forEach(page => {
+                const navItem = document.createElement('a');
+                navItem.href = '#';
+                navItem.className = 'flex items-center space-x-2 px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg transition duration-200';
+                navItem.innerHTML = `<i class="${page.icon}"></i><span>${page.text}</span>`;
+                navItem.onclick = (e) => {
+                    e.preventDefault();
+                    showPage(page.id);
+                };
+                nav.appendChild(navItem);
+            });
+        }
+
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.add('hidden');
+            });
+
+            // Show selected page
+            document.getElementById(pageId).classList.remove('hidden');
+            currentPage = pageId;
+
+            // Update navigation active state
+            document.querySelectorAll('#navigation a').forEach(link => {
+                link.classList.remove('bg-gray-700', 'text-white');
+                link.classList.add('text-gray-300');
+            });
+
+            // Load page content
+            switch(pageId) {
+                case 'dashboard':
+                    loadDashboard();
+                    break;
+                case 'bedList':
+                    loadBedList();
+                    break;
+                case 'patientAssignment':
+                    loadPatientAssignment();
+                    break;
+                case 'cleaningManagement':
+                    loadCleaningManagement();
+                    break;
+                case 'bedManagement':
+                    loadBedManagement();
+                    break;
+                case 'userManagement':
+                    loadUserManagement();
+                    break;
+                case 'reports':
+                    loadReports();
+                    break;
+            }
+        }
+
+        function loadDashboard() {
+            const content = document.getElementById('dashboardContent');
+
+            if (currentUser.role === 'nurse') {
+                const emptyBeds = beds.filter(bed => bed.status === 'empty').length;
+                const occupiedBeds = beds.filter(bed => bed.status === 'occupied').length;
+
+                content.innerHTML = `
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-white rounded-xl shadow-sm p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600">Boş Yataklar</p>
+                                    <p class="text-3xl font-bold text-green-600">${emptyBeds}</p>
+                                </div>
+                                <div class="bg-green-100 p-3 rounded-full">
+                                    <i class="fas fa-bed text-green-600 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-sm p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600">Dolu Yataklar</p>
+                                    <p class="text-3xl font-bold text-blue-600">${occupiedBeds}</p>
+                                </div>
+                                <div class="bg-blue-100 p-3 rounded-full">
+                                    <i class="fas fa-user-injured text-blue-600 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-sm p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600">Toplam Hasta</p>
+                                    <p class="text-3xl font-bold text-purple-600">${occupiedBeds}</p>
+                                </div>
+                                <div class="bg-purple-100 p-3 rounded-full">
+                                    <i class="fas fa-users text-purple-600 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Hızlı İşlemler</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <button onclick="showPage('patientAssignment')" class="flex items-center justify-center space-x-2 bg-blue-600 text-white p-4 rounded-lg hover:bg-blue-700 transition duration-200">
+                                <i class="fas fa-user-plus"></i>
+                                <span>Hasta Ata</span>
+                            </button>
+                            <button onclick="showPage('bedList')" class="flex items-center justify-center space-x-2 bg-green-600 text-white p-4 rounded-lg hover:bg-green-700 transition duration-200">
+                                <i class="fas fa-bed"></i>
+                                <span>Yatak Listesi</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else if (currentUser.role === 'cleaner') {
+                const cleaningBeds = beds.filter(bed => bed.status === 'cleaning').length;
+                const cleanedToday = 5; // Sample data
+
+                content.innerHTML = `
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-white rounded-xl shadow-sm p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600">Temizlik Bekleyen</p>
+                                    <p class="text-3xl font-bold text-orange-600">${cleaningBeds}</p>
+                                </div>
+                                <div class="bg-orange-100 p-3 rounded-full">
+                                    <i class="fas fa-exclamation-triangle text-orange-600 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-sm p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600">Bugün Temizlenen</p>
+                                    <p class="text-3xl font-bold text-green-600">${cleanedToday}</p>
+                                </div>
+                                <div class="bg-green-100 p-3 rounded-full">
+                                    <i class="fas fa-check-circle text-green-600 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-sm p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600">Ortalama Süre</p>
+                                    <p class="text-3xl font-bold text-blue-600">25dk</p>
+                                </div>
+                                <div class="bg-blue-100 p-3 rounded-full">
+                                    <i class="fas fa-clock text-blue-600 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Hızlı İşlemler</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <button onclick="showPage('cleaningManagement')" class="flex items-center justify-center space-x-2 bg-orange-600 text-white p-4 rounded-lg hover:bg-orange-700 transition duration-200">
+                                <i class="fas fa-broom"></i>
+                                <span>Temizlik Yönetimi</span>
+                            </button>
+                            <button onclick="showPage('bedList')" class="flex items-center justify-center space-x-2 bg-blue-600 text-white p-4 rounded-lg hover:bg-blue-700 transition duration-200">
+                                <i class="fas fa-bed"></i>
+                                <span>Yatak Listesi</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else if (currentUser.role === 'admin') {
+                const totalBeds = beds.length;
+                const occupancyRate = Math.round((beds.filter(bed => bed.status === 'occupied').length / totalBeds) * 100);
+
+                content.innerHTML = `
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-white rounded-xl shadow-sm p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600">Toplam Yatak</p>
+                                    <p class="text-3xl font-bold text-gray-900">${totalBeds}</p>
+                                </div>
+                                <div class="bg-gray-100 p-3 rounded-full">
+                                    <i class="fas fa-bed text-gray-600 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-sm p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600">Doluluk Oranı</p>
+                                    <p class="text-3xl font-bold text-blue-600">${occupancyRate}%</p>
+                                </div>
+                                <div class="bg-blue-100 p-3 rounded-full">
+                                    <i class="fas fa-chart-pie text-blue-600 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-sm p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600">Aktif Kullanıcı</p>
+                                    <p class="text-3xl font-bold text-green-600">${users.length}</p>
+                                </div>
+                                <div class="bg-green-100 p-3 rounded-full">
+                                    <i class="fas fa-users text-green-600 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-sm p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600">Günlük İşlem</p>
+                                    <p class="text-3xl font-bold text-purple-600">24</p>
+                                </div>
+                                <div class="bg-purple-100 p-3 rounded-full">
+                                    <i class="fas fa-activity text-purple-600 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="bg-white rounded-xl shadow-sm p-6">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Hızlı İşlemler</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <button onclick="showPage('bedManagement')" class="flex flex-col items-center justify-center space-y-2 bg-blue-600 text-white p-4 rounded-lg hover:bg-blue-700 transition duration-200">
+                                    <i class="fas fa-cog text-xl"></i>
+                                    <span class="text-sm">Yatak Yönetimi</span>
+                                </button>
+                                <button onclick="showPage('userManagement')" class="flex flex-col items-center justify-center space-y-2 bg-green-600 text-white p-4 rounded-lg hover:bg-green-700 transition duration-200">
+                                    <i class="fas fa-users text-xl"></i>
+                                    <span class="text-sm">Kullanıcı Yönetimi</span>
+                                </button>
+                                <button onclick="showPage('reports')" class="flex flex-col items-center justify-center space-y-2 bg-purple-600 text-white p-4 rounded-lg hover:bg-purple-700 transition duration-200">
+                                    <i class="fas fa-chart-bar text-xl"></i>
+                                    <span class="text-sm">Raporlar</span>
+                                </button>
+                                <button onclick="showPage('bedList')" class="flex flex-col items-center justify-center space-y-2 bg-orange-600 text-white p-4 rounded-lg hover:bg-orange-700 transition duration-200">
+                                    <i class="fas fa-bed text-xl"></i>
+                                    <span class="text-sm">Yatak Listesi</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-sm p-6">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Son Aktiviteler</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                                    <div class="bg-green-100 p-2 rounded-full">
+                                        <i class="fas fa-user-plus text-green-600 text-sm"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium text-gray-800">Hasta atandı - B002</p>
+                                        <p class="text-xs text-gray-500">5 dakika önce</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                                    <div class="bg-blue-100 p-2 rounded-full">
+                                        <i class="fas fa-broom text-blue-600 text-sm"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium text-gray-800">Temizlik tamamlandı - B001</p>
+                                        <p class="text-xs text-gray-500">15 dakika önce</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                                    <div class="bg-orange-100 p-2 rounded-full">
+                                        <i class="fas fa-sign-out-alt text-orange-600 text-sm"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium text-gray-800">Hasta taburcu - B005</p>
+                                        <p class="text-xs text-gray-500">1 saat önce</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function loadBedList() {
+            const grid = document.getElementById('bedGrid');
+            grid.innerHTML = '';
+
+            beds.forEach(bed => {
+                const bedCard = createBedCard(bed);
+                grid.appendChild(bedCard);
+            });
+        }
+
+        function createBedCard(bed) {
+            const card = document.createElement('div');
+            card.className = 'bg-white rounded-xl shadow-sm p-6 cursor-pointer hover:shadow-md transition duration-200';
+            card.onclick = () => showBedDetail(bed);
+
+            const statusColors = {
+                'empty': 'bg-green-100 text-green-800',
+                'occupied': 'bg-blue-100 text-blue-800',
+                'cleaning': 'bg-orange-100 text-orange-800'
+            };
+
+            const statusTexts = {
+                'empty': 'Boş',
+                'occupied': 'Dolu',
+                'cleaning': 'Temizlikte'
+            };
+
+            const statusIcons = {
+                'empty': 'fas fa-bed',
+                'occupied': 'fas fa-user-injured',
+                'cleaning': 'fas fa-broom'
+            };
+
+            card.innerHTML = `
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-gray-800">${bed.id}</h3>
+                    <span class="px-3 py-1 rounded-full text-sm font-medium ${statusColors[bed.status]}">
+                        <i class="${statusIcons[bed.status]} mr-1"></i>
+                        ${statusTexts[bed.status]}
+                    </span>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="flex items-center text-sm text-gray-600">
+                        <i class="fas fa-door-open w-4 mr-2"></i>
+                        <span>Oda: ${bed.room}</span>
+                    </div>
+
+                    ${bed.patient ? `
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i class="fas fa-user w-4 mr-2"></i>
+                            <span>${bed.patient.name}</span>
+                        </div>
+                    ` : ''}
+
+                    <div class="flex items-center text-sm text-gray-600">
+                        <i class="fas fa-clock w-4 mr-2"></i>
+                        <span>Son temizlik: ${bed.lastCleaned}</span>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        function filterBeds() {
+            const filter = document.getElementById('bedFilter').value;
+            const search = document.getElementById('bedSearch').value.toLowerCase();
+
+            const filteredBeds = beds.filter(bed => {
+                const matchesFilter = !filter || bed.status === filter;
+                const matchesSearch = !search ||
+                    bed.id.toLowerCase().includes(search) ||
+                    bed.room.toLowerCase().includes(search) ||
+                    (bed.patient && bed.patient.name.toLowerCase().includes(search));
+
+                return matchesFilter && matchesSearch;
+            });
+
+            const grid = document.getElementById('bedGrid');
+            grid.innerHTML = '';
+
+            filteredBeds.forEach(bed => {
+                const bedCard = createBedCard(bed);
+                grid.appendChild(bedCard);
+            });
+        }
+
+        function showBedDetail(bed) {
+            const modal = document.getElementById('bedDetailModal');
+            const content = document.getElementById('bedDetailContent');
+
+            const statusTexts = {
+                'empty': 'Boş',
+                'occupied': 'Dolu',
+                'cleaning': 'Temizlikte'
+            };
+
+            content.innerHTML = `
+                <div class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Yatak No</label>
+                            <p class="text-lg font-semibold text-gray-900">${bed.id}</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Oda</label>
+                            <p class="text-lg font-semibold text-gray-900">${bed.room}</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Durum</label>
+                        <p class="text-lg font-semibold text-gray-900">${statusTexts[bed.status]}</p>
+                    </div>
+
+                    ${bed.patient ? `
+                        <div class="border-t pt-4">
+                            <h4 class="font-medium text-gray-800 mb-2">Hasta Bilgileri</h4>
+                            <div class="space-y-2">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Ad Soyad</label>
+                                    <p class="text-gray-900">${bed.patient.name}</p>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">TC Kimlik</label>
+                                    <p class="text-gray-900">${bed.patient.id}</p>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Yaş</label>
+                                    <p class="text-gray-900">${bed.patient.age}</p>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Tanı</label>
+                                    <p class="text-gray-900">${bed.patient.diagnosis}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    <div class="border-t pt-4">
+                        <label class="block text-sm font-medium text-gray-700">Son Temizlik</label>
+                        <p class="text-gray-900">${bed.lastCleaned}</p>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeBedDetailModal() {
+            const modal = document.getElementById('bedDetailModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function loadPatientAssignment() {
+            const emptyBedsList = document.getElementById('emptyBedsList');
+            const emptyBeds = beds.filter(bed => bed.status === 'empty');
+
+            emptyBedsList.innerHTML = '';
+
+            emptyBeds.forEach(bed => {
+                const bedItem = document.createElement('div');
+                bedItem.className = 'flex items-center justify-between p-4 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition duration-200';
+                bedItem.onclick = () => selectBed(bed.id);
+
+                bedItem.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-green-100 p-2 rounded-full">
+                            <i class="fas fa-bed text-green-600"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-800">${bed.id}</p>
+                            <p class="text-sm text-gray-600">Oda: ${bed.room}</p>
+                        </div>
+                    </div>
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-200">
+                        Seç
+                    </button>
+                `;
+
+                emptyBedsList.appendChild(bedItem);
+            });
+        }
+
+        function selectBed(bedId) {
+            document.getElementById('selectedBed').value = bedId;
+        }
+
+        function assignPatient() {
+            const patientName = document.getElementById('patientName').value;
+            const patientId = document.getElementById('patientId').value;
+            const patientAge = document.getElementById('patientAge').value;
+            const patientDiagnosis = document.getElementById('patientDiagnosis').value;
+            const selectedBed = document.getElementById('selectedBed').value;
+
+            if (!patientName || !patientId || !patientAge || !patientDiagnosis || !selectedBed) {
+                alert('Lütfen tüm alanları doldurun!');
+                return;
+            }
+
+            const bed = beds.find(b => b.id === selectedBed);
+            if (bed) {
+                bed.status = 'occupied';
+                bed.patient = {
+                    name: patientName,
+                    id: patientId,
+                    age: parseInt(patientAge),
+                    diagnosis: patientDiagnosis
+                };
+
+                alert('Hasta başarıyla atandı!');
+                document.getElementById('patientForm').reset();
+                loadPatientAssignment();
+            }
+        }
+
+        function loadCleaningManagement() {
+            const cleaningBedsList = document.getElementById('cleaningBedsList');
+            const cleaningHistory = document.getElementById('cleaningHistory');
+
+            const cleaningBeds = beds.filter(bed => bed.status === 'cleaning');
+
+            cleaningBedsList.innerHTML = '';
+
+            cleaningBeds.forEach(bed => {
+                const bedItem = document.createElement('div');
+                bedItem.className = 'flex items-center justify-between p-4 border border-orange-200 rounded-lg bg-orange-50';
+
+                bedItem.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-orange-100 p-2 rounded-full">
+                            <i class="fas fa-broom text-orange-600"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-800">${bed.id}</p>
+                            <p class="text-sm text-gray-600">Oda: ${bed.room}</p>
+                        </div>
+                    </div>
+                    <button onclick="completeCleaning('${bed.id}')" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
+                        Temizlik Bitir
+                    </button>
+                `;
+
+                cleaningBedsList.appendChild(bedItem);
+            });
+
+            // Sample cleaning history
+            cleaningHistory.innerHTML = `
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                        <div class="bg-green-100 p-2 rounded-full">
+                            <i class="fas fa-check text-green-600 text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm font-medium text-gray-800">B001 - Tamamlandı</p>
+                            <p class="text-xs text-gray-500">10:30 - 25 dakika</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                        <div class="bg-green-100 p-2 rounded-full">
+                            <i class="fas fa-check text-green-600 text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm font-medium text-gray-800">B004 - Tamamlandı</p>
+                            <p class="text-xs text-gray-500">09:15 - 30 dakika</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function completeCleaning(bedId) {
+            const bed = beds.find(b => b.id === bedId);
+            if (bed) {
+                bed.status = 'empty';
+                bed.lastCleaned = new Date().toLocaleString('tr-TR');
+
+                alert('Temizlik tamamlandı!');
+                loadCleaningManagement();
+            }
+        }
+
+        function loadBedManagement() {
+            const table = document.getElementById('bedManagementTable');
+            table.innerHTML = '';
+
+            beds.forEach(bed => {
+                const row = document.createElement('tr');
+
+                const statusTexts = {
+                    'empty': 'Boş',
+                    'occupied': 'Dolu',
+                    'cleaning': 'Temizlikte'
+                };
+
+                const statusColors = {
+                    'empty': 'bg-green-100 text-green-800',
+                    'occupied': 'bg-blue-100 text-blue-800',
+                    'cleaning': 'bg-orange-100 text-orange-800'
+                };
+
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${bed.id}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${bed.room}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${statusColors[bed.status]}">
+                            ${statusTexts[bed.status]}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${bed.lastCleaned}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button onclick="editBed('${bed.id}')" class="text-blue-600 hover:text-blue-900 mr-3">Düzenle</button>
+                        <button onclick="deleteBed('${bed.id}')" class="text-red-600 hover:text-red-900">Sil</button>
+                    </td>
+                `;
+
+                table.appendChild(row);
+            });
+        }
+
+        function loadUserManagement() {
+            const table = document.getElementById('userManagementTable');
+            table.innerHTML = '';
+
+            users.forEach(user => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${user.username}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${user.fullName}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${getRoleText(user.role)}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${user.lastLogin}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button onclick="editUser('${user.username}')" class="text-blue-600 hover:text-blue-900 mr-3">Düzenle</button>
+                        <button onclick="deleteUser('${user.username}')" class="text-red-600 hover:text-red-900">Sil</button>
+                    </td>
+                `;
+
+                table.appendChild(row);
+            });
+        }
+
+        function loadReports() {
+            const activities = document.getElementById('recentActivities');
+
+            activities.innerHTML = `
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                        <div class="bg-green-100 p-2 rounded-full">
+                            <i class="fas fa-user-plus text-green-600 text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm font-medium text-gray-800">Hasta atandı - B002</p>
+                            <p class="text-xs text-gray-500">Hemşire: Ayşe Hemşire - 5 dakika önce</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                        <div class="bg-blue-100 p-2 rounded-full">
+                            <i class="fas fa-broom text-blue-600 text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm font-medium text-gray-800">Temizlik tamamlandı - B001</p>
+                            <p class="text-xs text-gray-500">Temizlikçi: Mehmet Temizlik - 15 dakika önce</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                        <div class="bg-orange-100 p-2 rounded-full">
+                            <i class="fas fa-sign-out-alt text-orange-600 text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm font-medium text-gray-800">Hasta taburcu - B005</p>
+                            <p class="text-xs text-gray-500">Hemşire: Ayşe Hemşire - 1 saat önce</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                        <div class="bg-purple-100 p-2 rounded-full">
+                            <i class="fas fa-bed text-purple-600 text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm font-medium text-gray-800">Yeni yatak eklendi - B007</p>
+                            <p class="text-xs text-gray-500">Admin: Admin Kullanıcı - 2 saat önce</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Placeholder functions for admin actions
+        function showAddBedModal() {
+            alert('Yatak ekleme modalı açılacak (Demo)');
+        }
+
+        function showAddUserModal() {
+            alert('Kullanıcı ekleme modalı açılacak (Demo)');
+        }
+
+        function editBed(bedId) {
+            alert(`${bedId} yatak düzenleme modalı açılacak (Demo)`);
+        }
+
+        function deleteBed(bedId) {
+            if (confirm(`${bedId} yatağını silmek istediğinizden emin misiniz?`)) {
+                const index = beds.findIndex(bed => bed.id === bedId);
+                if (index > -1) {
+                    beds.splice(index, 1);
+                    loadBedManagement();
+                    alert('Yatak silindi!');
+                }
+            }
+        }
+
+        function editUser(username) {
+            alert(`${username} kullanıcı düzenleme modalı açılacak (Demo)`);
+        }
+
+        function deleteUser(username) {
+            if (confirm(`${username} kullanıcısını silmek istediğinizden emin misiniz?`)) {
+                const index = users.findIndex(user => user.username === username);
+                if (index > -1) {
+                    users.splice(index, 1);
+                    loadUserManagement();
+                    alert('Kullanıcı silindi!');
+                }
+            }
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('bedDetailModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeBedDetailModal();
+            }
+        });
+    </script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96084162170f4131',t:'MTc1MjczOTc0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+
+</html>

@@ -1,0 +1,494 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonum2.webui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|solutionrelative:hastakonum2.webui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonum2.webui\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|solutionrelative:hastakonum2.webui\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonum2.webui\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|solutionrelative:hastakonum2.webui\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonum2.webui\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|solutionrelative:hastakonum2.webui\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonum2.webui\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|solutionrelative:hastakonum2.webui\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonum2.webui\\views\\hem\u015Fire\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|solutionrelative:hastakonum2.webui\\views\\hem\u015Fire\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonum2.webui\\views\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|solutionrelative:hastakonum2.webui\\views\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonumwebapi2\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|solutionrelative:hastakonumwebapi2\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonumwebapi2\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|solutionrelative:hastakonumwebapi2\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonumwebapi2\\controllers\\cleaninglogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|solutionrelative:hastakonumwebapi2\\controllers\\cleaninglogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonumwebapi2\\controllers\\bedlogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|solutionrelative:hastakonumwebapi2\\controllers\\bedlogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonumwebapi2\\controllers\\bedcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|solutionrelative:hastakonumwebapi2\\controllers\\bedcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonumwebapi2\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|solutionrelative:hastakonumwebapi2\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonumwebapi2\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|solutionrelative:hastakonumwebapi2\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonumwebapi2\\models\\bedlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|solutionrelative:hastakonumwebapi2\\models\\bedlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonumwebapi2\\models\\bed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|solutionrelative:hastakonumwebapi2\\models\\bed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonum2.webui\\hastakonum2.webui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|solutionrelative:hastakonum2.webui\\hastakonum2.webui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonumwebapi2\\dto\\usersdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|solutionrelative:hastakonumwebapi2\\dto\\usersdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonumwebapi2\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|solutionrelative:hastakonumwebapi2\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonumwebapi2\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|solutionrelative:hastakonumwebapi2\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonumwebapi2\\models\\cleaninglog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|solutionrelative:hastakonumwebapi2\\models\\cleaninglog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonumwebapi2\\models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B2794AA-EEAF-4FEE-8BB9-FB0FF5972FD8}|HastaKonumWebApi2\\HastaKonumWebApi2.csproj|solutionrelative:hastakonumwebapi2\\models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonum2.webui\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|solutionrelative:hastakonum2.webui\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonum2.webui\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|solutionrelative:hastakonum2.webui\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonum2.webui\\controllers\\hem\u015Firecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|solutionrelative:hastakonum2.webui\\controllers\\hem\u015Firecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonum2.webui\\controllers\\temizlik\u00E7icontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|solutionrelative:hastakonum2.webui\\controllers\\temizlik\u00E7icontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonum2.webui\\wwwroot\\js\\uygulama.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|solutionrelative:hastakonum2.webui\\wwwroot\\js\\uygulama.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|c:\\users\\eemir\\onedrive\\masa\u00FCst\u00FC\\stajprojesi\\hastakonum2\\hastakonum2.webui\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0397B18E-4A27-44FC-8441-217F607491D9}|HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj|solutionrelative:hastakonum2.webui\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 12,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\appsettings.json",
+              "RelativeDocumentMoniker": "HastaKonum2.WebUI\\appsettings.json",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\appsettings.json",
+              "RelativeToolTip": "HastaKonum2.WebUI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-08T20:40:55.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "HastaKonum2.WebUI\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "HastaKonum2.WebUI\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-20T15:04:46.048Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PatientController.cs",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Controllers\\PatientController.cs",
+              "RelativeDocumentMoniker": "HastaKonumWebApi2\\Controllers\\PatientController.cs",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Controllers\\PatientController.cs",
+              "RelativeToolTip": "HastaKonumWebApi2\\Controllers\\PatientController.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAHQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T12:30:17.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CleaningLogController.cs",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Controllers\\CleaningLogController.cs",
+              "RelativeDocumentMoniker": "HastaKonumWebApi2\\Controllers\\CleaningLogController.cs",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Controllers\\CleaningLogController.cs",
+              "RelativeToolTip": "HastaKonumWebApi2\\Controllers\\CleaningLogController.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAuwFcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T11:22:51Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Views\\Auth\\Login.cshtml",
+              "RelativeDocumentMoniker": "HastaKonum2.WebUI\\Views\\Auth\\Login.cshtml",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Views\\Auth\\Login.cshtml",
+              "RelativeToolTip": "HastaKonum2.WebUI\\Views\\Auth\\Login.cshtml",
+              "ViewState": "AgIAACUAAAAAAAAAAAAwwEgAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-22T09:00:43.527Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "HastaKonumWebApi2\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "HastaKonumWebApi2\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAAAH0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T10:53:59.821Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "HastaKonum2.WebUI\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "HastaKonum2.WebUI\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-22T08:18:04.41Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Program.cs",
+              "RelativeDocumentMoniker": "HastaKonum2.WebUI\\Program.cs",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Program.cs",
+              "RelativeToolTip": "HastaKonum2.WebUI\\Program.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAcwCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T07:56:33.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "HastaKonum2.WebUI\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "HastaKonum2.WebUI\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-22T08:17:08.467Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Views\\Hem\u015Fire\\Index.cshtml",
+              "RelativeDocumentMoniker": "HastaKonum2.WebUI\\Views\\Hem\u015Fire\\Index.cshtml",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Views\\Hem\u015Fire\\Index.cshtml",
+              "RelativeToolTip": "HastaKonum2.WebUI\\Views\\Hem\u015Fire\\Index.cshtml",
+              "ViewState": "AgIAAKEBAAAAAAAAAAAAANcBAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-22T11:01:05.617Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BedLogController.cs",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Controllers\\BedLogController.cs",
+              "RelativeDocumentMoniker": "HastaKonumWebApi2\\Controllers\\BedLogController.cs",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Controllers\\BedLogController.cs",
+              "RelativeToolTip": "HastaKonumWebApi2\\Controllers\\BedLogController.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAuwGAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T09:54:54.816Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\ViewModels\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "HastaKonumWebApi2\\ViewModels\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\ViewModels\\LoginViewModel.cs",
+              "RelativeToolTip": "HastaKonumWebApi2\\ViewModels\\LoginViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T13:10:29.065Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "BedLog.cs",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Models\\BedLog.cs",
+              "RelativeDocumentMoniker": "HastaKonumWebApi2\\Models\\BedLog.cs",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Models\\BedLog.cs",
+              "RelativeToolTip": "HastaKonumWebApi2\\Models\\BedLog.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAAgAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T11:35:21.374Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Users.cs",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Models\\Users.cs",
+              "RelativeDocumentMoniker": "HastaKonumWebApi2\\Models\\Users.cs",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Models\\Users.cs",
+              "RelativeToolTip": "HastaKonumWebApi2\\Models\\Users.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T13:03:02.828Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Bed.cs",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Models\\Bed.cs",
+              "RelativeDocumentMoniker": "HastaKonumWebApi2\\Models\\Bed.cs",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Models\\Bed.cs",
+              "RelativeToolTip": "HastaKonumWebApi2\\Models\\Bed.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T11:34:40.306Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "HastaKonumWebApi2\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "HastaKonumWebApi2\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwBAAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T13:10:40.571Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "HastaKonumWebApi2\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "HastaKonumWebApi2\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T13:10:58.659Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BedController.cs",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Controllers\\BedController.cs",
+              "RelativeDocumentMoniker": "HastaKonumWebApi2\\Controllers\\BedController.cs",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Controllers\\BedController.cs",
+              "RelativeToolTip": "HastaKonumWebApi2\\Controllers\\BedController.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAGIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T11:19:31.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "HastaKonum2.WebUI.csproj",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj",
+              "RelativeDocumentMoniker": "HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj",
+              "RelativeToolTip": "HastaKonum2.WebUI\\HastaKonum2.WebUI.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-19T11:22:47.523Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UsersDto.cs",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Dto\\UsersDto.cs",
+              "RelativeDocumentMoniker": "HastaKonumWebApi2\\Dto\\UsersDto.cs",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Dto\\UsersDto.cs",
+              "RelativeToolTip": "HastaKonumWebApi2\\Dto\\UsersDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T14:08:23.161Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "CleaningLog.cs",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Models\\CleaningLog.cs",
+              "RelativeDocumentMoniker": "HastaKonumWebApi2\\Models\\CleaningLog.cs",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Models\\CleaningLog.cs",
+              "RelativeToolTip": "HastaKonumWebApi2\\Models\\CleaningLog.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T11:42:17.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Patient.cs",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Models\\Patient.cs",
+              "RelativeDocumentMoniker": "HastaKonumWebApi2\\Models\\Patient.cs",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonumWebApi2\\Models\\Patient.cs",
+              "RelativeToolTip": "HastaKonumWebApi2\\Models\\Patient.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T12:57:23Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Temizlik\u00E7iController.cs",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Controllers\\Temizlik\u00E7iController.cs",
+              "RelativeDocumentMoniker": "HastaKonum2.WebUI\\Controllers\\Temizlik\u00E7iController.cs",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Controllers\\Temizlik\u00E7iController.cs",
+              "RelativeToolTip": "HastaKonum2.WebUI\\Controllers\\Temizlik\u00E7iController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T10:50:46.27Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Hem\u015FireController.cs",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Controllers\\Hem\u015FireController.cs",
+              "RelativeDocumentMoniker": "HastaKonum2.WebUI\\Controllers\\Hem\u015FireController.cs",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Controllers\\Hem\u015FireController.cs",
+              "RelativeToolTip": "HastaKonum2.WebUI\\Controllers\\Hem\u015FireController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T10:50:25.861Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "HastaKonum2.WebUI\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "HastaKonum2.WebUI\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T10:50:07.844Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "HastaKonum2.WebUI\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "HastaKonum2.WebUI\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-22T08:17:11.852Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "HastaKonum2.WebUI\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "HastaKonum2.WebUI\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T07:55:52.611Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "uygulama.js",
+              "DocumentMoniker": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\wwwroot\\js\\uygulama.js",
+              "RelativeDocumentMoniker": "HastaKonum2.WebUI\\wwwroot\\js\\uygulama.js",
+              "ToolTip": "C:\\Users\\eemir\\OneDrive\\Masa\u00FCst\u00FC\\stajprojesi\\HastaKonum2\\HastaKonum2.WebUI\\wwwroot\\js\\uygulama.js",
+              "RelativeToolTip": "HastaKonum2.WebUI\\wwwroot\\js\\uygulama.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-07-22T10:57:10.092Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

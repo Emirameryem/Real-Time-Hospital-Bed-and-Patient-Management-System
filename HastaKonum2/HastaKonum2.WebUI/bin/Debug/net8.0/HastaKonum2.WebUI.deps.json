@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "HastaKonum2.WebUI/1.0.0": {
+        "runtime": {
+          "HastaKonum2.WebUI.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HastaKonum2.WebUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

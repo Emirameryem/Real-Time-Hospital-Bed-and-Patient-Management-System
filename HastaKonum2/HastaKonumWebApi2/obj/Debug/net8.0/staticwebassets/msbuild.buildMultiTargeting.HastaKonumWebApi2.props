@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\HastaKonumWebApi2.props" />
+</Project>
